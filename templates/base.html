@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Flask Blog</h1>
+        <nav>
+            <a href="/">Trang chủ</a>
+            <a href="/dashboard">Dashboard</a>
+            {% if user %}
+                <a href="/change-password">Đổi mật khẩu</a>
+                <a href="/logout">Đăng xuất ({{ user.username }})</a>
+            {% else %}
+                <a href="/register">Đăng ký</a>
+                <a href="/login">Đăng nhập</a>
+            {% endif %}
+        </nav>        
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

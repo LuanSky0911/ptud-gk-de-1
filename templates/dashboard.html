@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="dashboard">
+    <h2>Quản lý blog</h2>
+    <p><strong>Tổng số bài viết:</strong> {{ posts|length }}</p>
+    <p><strong>Tổng số người dùng:</strong> {{ users|length }}</p>
+
+    <!-- Ai cũng thấy form thêm bài viết -->
+    <h3>Thêm bài viết</h3>
+    <form method="POST" action="/dashboard">
+        <label for="title">Tiêu đề:</label>
+        <input type="text" name="title" required>
+
+        <label for="content">Nội dung:</label>
+        <textarea name="content" required></textarea>
+
+        <label for="image_url">URL hình ảnh:</label>
+        <input type="text" name="image_url" required>
+
+        <button type="submit">Thêm bài viết</button>
+    </form>
+
+    <!-- Ai cũng thấy nút xóa -->
+    <h3>Danh sách bài viết</h3>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <strong>{{ post.title }}</strong>
+                <form method="POST" action="/delete/{{ post.id }}" style="display:inline;">
+                    <button type="submit">Xóa</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

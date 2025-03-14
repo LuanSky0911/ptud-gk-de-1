@@ -1,0 +1,142 @@
+/* Tổng thể */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Header */
+header {
+    background: #343a40;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Nội dung chính */
+main {
+    width: 60%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Bài viết */
+.blog-posts {
+    padding: 20px;
+}
+
+.post {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.post img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.post h2 {
+    color: #007bff;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+form input, form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Dashboard */
+.dashboard {
+    text-align: center;
+    padding: 20px;
+}
+
+.dashboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard li {
+    background: #ddd;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* Trang đăng nhập & đăng ký */
+.auth-required {
+    text-align: center;
+    padding: 20px;
+    background: #fff3cd;
+    border-radius: 8px;
+}
+
+.auth-required a {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.auth-required a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main {
+        width: 90%;
+    }
+
+    form {
+        width: 100%;
+    }
+}

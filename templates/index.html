@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="blog-posts">
+        {% for post in posts %}
+            <article class="post">
+                <h2>{{ post.title }}</h2>
+                <img src="{{ post.image_url }}" alt="Hình ảnh bài viết">
+                <p>{{ post.content }}</p>
+
+                <!-- Hiển thị bình luận -->
+                <h3>Bình luận</h3>
+                <ul>
+                    {% for comment in post.comments %}
+                        <li>
+                            <strong>{{ comment.user.username }}:</strong> {{ comment.content }}
+                            {% if user and user.role == 'actor' %}
+                                <form method="POST" action="/delete_comment/{{ comment.id }}" style="display:inline;">
+                                    <button type="submit">Xóa</button>
+                                </form>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <!-- Form thêm bình luận -->
+                {% if user %}
+                    <form method="POST" action="/add_comment/{{ post.id }}">
+                        <textarea name="content" placeholder="Nhập bình luận..." required></textarea>
+                        <button type="submit">Gửi</button>
+                    </form>
+                {% else %}
+                    <p><a href="/login">Đăng nhập</a> để bình luận.</p>
+                {% endif %}
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}
